@@ -3,11 +3,31 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+    # YOUR CODE HERE
+    sum = 0
+    arr.inject(0){|sum,x| sum+x}
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+    # YOUR CODE HERE
+	max_1=0
+	max_2=0
+	arr.each do |element|
+		if max_1 == 0
+			max_1=element
+
+		elsif max_2 == 0
+			max_2=element
+
+		elsif element>max_1
+			max_1=element
+
+		elsif element>max_2
+   			max_2=element
+		end
+    end
+
+    max_1+max_2
 end
 
 def sum_to_n? arr, n
