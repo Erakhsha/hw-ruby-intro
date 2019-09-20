@@ -51,7 +51,18 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+    # YOUR CODE HERE
+    if s.to_s.strip.empty?
+        return false
+    end
+    if /^[a|e|i|o|u]/.match?(s.downcase)
+        return false
+    end
+    if /[^a-zA-Z\d\s:]/.match?(s)
+        return false
+    end
+    return true
+    #return ((not /[^a-zA-Z\d\s:]/.match?(s)) && (not s.to_s.strip.empty?) && (not (/^[a|e|i|o|u]/.match?(s.downcase))))
 end
 
 def binary_multiple_of_4? s
