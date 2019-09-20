@@ -54,19 +54,27 @@ def starts_with_consonant? s
     # YOUR CODE HERE
     if s.to_s.strip.empty?
         return false
-    end
-    if /^[a|e|i|o|u]/.match?(s.downcase)
+ 
+    elsif /^[a|e|i|o|u]/.match?(s.downcase)
+        return false
+    
+    elsif /[^a-zA-Z\d\s:]/.match?(s)
         return false
     end
-    if /[^a-zA-Z\d\s:]/.match?(s)
-        return false
-    end
+
     return true
-    #return ((not /[^a-zA-Z\d\s:]/.match?(s)) && (not s.to_s.strip.empty?) && (not (/^[a|e|i|o|u]/.match?(s.downcase))))
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+    # YOUR CODE HERE
+    if not /^[(0|1)]+$/.match(s)
+        return false
+
+    elsif /^0$/.match(s) || /00$/.match(s)
+        return true
+    end
+
+    return false
 end
 
 # Part 3
