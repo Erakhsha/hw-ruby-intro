@@ -31,7 +31,16 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+	require 'set'
+	seen=Set[]
+	arr.each do |element|
+		compliment=n-element
+		if seen.include? compliment
+			return true
+		end
+		seen.add(element)
+	end
+	return false
 end
 
 # Part 2
