@@ -80,5 +80,51 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+    # YOUR CODE HERE
+    @isbn  = 0
+	@price = 0.0
+
+
+	def initialize(isbn, price)
+		_verify_isbn(isbn)
+		_verify_price(price)
+
+		@isbn=isbn
+		@price=price.to_f
+    end
+
+	def _verify_isbn(isbn)
+        if isbn.to_s.strip.empty?
+		    raise ArgumentError, 'ISBN is empty!'
+        end
+	end	
+
+	def _verify_price(price)
+        if price.to_f <= 0
+		    raise ArgumentError, 'Price should be more than zero!'
+	    end
+    end
+
+	def isbn=(isbn)
+		_verify_isbn(isbn)
+		@isbn=isbn
+	end
+
+	def isbn()
+		return @isbn
+	end
+
+	def price=(price)
+		_verify_price(price)
+		@price=price.to_f
+	end
+
+	def price()
+		return @price
+	end
+
+	def price_as_string()
+		return '$%.2f' % @price
+	end
+
 end
